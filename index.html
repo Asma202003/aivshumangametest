@@ -1,0 +1,463 @@
+<html class="scroll-smooth" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   AI or Human? The Ultimate Content Challenge
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    video {
+      max-width: 100%;
+      border-radius: 0.375rem;
+      /* rounded-md */
+      box-shadow: 0 4px 15px rgb(0 0 0 / 0.25);
+    }
+    img {
+      border-radius: 0.375rem;
+      /* rounded-md */
+      box-shadow: 0 4px 15px rgb(0 0 0 / 0.25);
+      object-fit: cover;
+    }
+  </style>
+ </head>
+ <body class="flex flex-col items-center justify-center p-4 min-h-screen">
+  <main class="w-full max-w-4xl bg-white rounded-3xl shadow-2xl p-8 md:p-12 mt-12 mb-12 flex flex-col items-center">
+   <!-- Front Page -->
+   <section class="flex flex-col items-center space-y-8 w-full" id="front-page">
+    <h1 class="text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-600 to-purple-700 tracking-wide select-none">
+     AI or Human?
+     <br/>
+     <span class="text-3xl font-semibold text-gray-700">
+      The Ultimate Content Challenge
+     </span>
+    </h1>
+    <img alt="High quality image showing a split screen with human creativity on one side featuring a person writing and painting, and AI creativity on the other side with digital neural network and code symbols, visually explaining the game concept of distinguishing AI and human content" class="rounded-3xl shadow-lg max-w-full" height="300" src="https://motionarray.imgix.net/motion-array-2056463-kg8z0CL8Ch-high_0006.jpg?w=660&amp;q=60&amp;fit=max&amp;auto=format" width="600"/>
+    <p class="text-center text-gray-800 text-lg max-w-3xl">
+     Challenge your insight. Distinguish the subtle line where human creativity
+     meets artificial intelligence. Are you ready to see beyond the obvious?
+    </p>
+    <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-12 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-indigo-400" id="start-btn">
+     Start Game
+    </button>
+   </section>
+   <!-- Game Section -->
+   <section class="hidden w-full space-y-10" id="game">
+    <!-- Question container -->
+    <div class="space-y-8" id="question-container">
+     <!-- Question text -->
+     <p class="text-xl md:text-2xl font-semibold text-gray-900 leading-relaxed text-center" id="question-text">
+      Loading question...
+     </p>
+     <!-- Content snippet box -->
+     <div class="bg-gray-100 border border-gray-300 rounded-xl p-6 text-gray-800 text-base md:text-lg min-h-[180px] flex flex-col items-center justify-center space-y-6" id="content-box">
+      Loading content...
+     </div>
+     <!-- Answer buttons -->
+     <div class="flex flex-col sm:flex-row gap-6 justify-center">
+      <button class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-red-400 flex items-center justify-center text-lg" id="btn-ai">
+       <i class="fas fa-robot mr-3 text-2xl">
+       </i>
+       AI
+      </button>
+      <button class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-green-400 flex items-center justify-center text-lg" id="btn-human">
+       <i class="fas fa-user mr-3 text-2xl">
+       </i>
+       Human
+      </button>
+     </div>
+    </div>
+    <!-- Navigation buttons -->
+    <div class="flex justify-between mt-6">
+     <button class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-gray-300 disabled:opacity-50 disabled:cursor-not-allowed" disabled="" id="prev-btn">
+      <i class="fas fa-arrow-left mr-2">
+      </i>
+      Previous
+     </button>
+     <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-yellow-400" id="quit-btn">
+      <i class="fas fa-sign-out-alt mr-2">
+      </i>
+      Quit
+     </button>
+     <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-blue-400" id="next-btn">
+      Next
+      <i class="fas fa-arrow-right ml-2">
+      </i>
+     </button>
+    </div>
+    <!-- Feedback and navigation -->
+    <div class="hidden flex-col items-center space-y-5 text-center" id="feedback-container">
+     <p class="text-xl font-semibold text-gray-900" id="feedback-text">
+     </p>
+     <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-blue-400" id="feedback-next-btn">
+      Continue
+     </button>
+    </div>
+   </section>
+   <!-- Final result -->
+   <section class="hidden flex flex-col items-center space-y-8 text-center mt-12 px-4" id="result-container">
+    <h2 class="text-4xl font-extrabold text-gray-900">
+     Challenge Complete!
+    </h2>
+    <p class="text-2xl text-gray-800 max-w-3xl" id="final-message">
+    </p>
+    <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-12 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-indigo-400" id="restart-btn">
+     Play Again
+    </button>
+    <button class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-4 px-12 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-gray-600" id="end-btn">
+     End Challenge
+    </button>
+   </section>
+   <!-- Final End Page -->
+   <section class="hidden flex flex-col items-center space-y-8 text-center mt-12 px-6 max-w-3xl" id="end-container">
+    <h2 class="text-4xl font-extrabold text-indigo-700">
+     You've Reached the Finish Line!
+    </h2>
+    <img alt="Illustration of a person joyfully celebrating success with confetti and a shining trophy, symbolizing achievement and accomplishment" class="rounded-3xl shadow-lg w-full max-w-full h-auto" height="300" src="https://storage.googleapis.com/a1aa/image/63202f16-e36f-4850-8300-3a1ac9cf9675.jpg" width="600"/>
+    <p class="text-lg text-gray-700">
+     Congratulations on completing the AI or Human content challenge! Your curiosity and insight have brought you to the forefront of understanding the fascinating blend of human creativity and artificial intelligence.
+    </p>
+    <p class="text-lg text-gray-700">
+     We hope this journey has been both enlightening and enjoyable. Keep exploring, keep questioning, and continue to sharpen your perception in this ever-evolving digital world.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-6 justify-center mt-6 w-full max-w-md">
+     <button class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-indigo-400" id="end-restart-btn">
+      Play Again
+     </button>
+     <button class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-gray-500" id="end-home-btn">
+      Return to Home
+     </button>
+    </div>
+   </section>
+  </main>
+  <script>
+   const questions = [
+      {
+        question: "Is the following content generated by AI or a Human?",
+        contentType: "text",
+        content: `The sun dipped below the horizon, painting the sky with hues of orange and pink. A gentle breeze rustled the leaves, carrying the scent of blooming jasmine. It was a perfect evening to reflect on the day's adventures and dream about tomorrow's possibilities.`,
+        answer: "human",
+      },
+      {
+        question: "Is the following content generated by AI or a Human?",
+        contentType: "image",
+        content: {
+          src: "https://thumbs.dreamstime.com/b/beautiful-winter-landscape-snowy-forest-calm-river-under-mountain-peak-ai-generated-378298405.jpg?w=768",
+          alt: "AI generated abstract art with vibrant colors and geometric shapes, digital painting style",
+        },
+        answer: "ai",
+      },
+      {
+        question: "Is the following content generated by AI or a Human?",
+        contentType: "video",
+        content: {
+          src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
+          alt: "Short video clip showing a close-up of a blooming flower with gentle sunlight",
+        },
+        answer: "human",
+      },
+      {
+        question: "Is the following content generated by AI or a Human?",
+        contentType: "text",
+        content: `The economic implications of blockchain technology extend beyond cryptocurrencies. By providing decentralized and transparent ledgers, blockchain can enhance supply chain management, improve security, and reduce fraud across various sectors.`,
+        answer: "ai",
+      },
+      {
+        question: "Is the following content generated by AI or a Human?",
+        contentType: "image",
+        content: {
+          src: "https://cirquefurniture.com/wp-content/uploads/2023/03/multi-storey-open-plan-living-wall-office-2.webp",
+          alt: "Photograph of a bustling market with fresh fruits and handmade crafts, vibrant colors, natural lighting",
+        },
+        answer: "ai",
+      },
+      {
+        question: "Is the following content generated by AI or a Human?",
+        contentType: "text",
+        content: `Artificial intelligence models have been trained on vast datasets, enabling them to generate human-like text, images, and even videos. However, subtle nuances often reveal their synthetic origins.`,
+        answer: "ai",
+      },
+      {
+        question: "Is the following content generated by AI or a Human?",
+        contentType: "image",
+        content: {
+          src: "https://i.etsystatic.com/5312870/r/il/135afa/213354157/il_1588xN.213354157.jpg",
+          alt: "A vibrant oil painting of a countryside landscape with rolling hills, bright flowers, and a clear blue sky, painted with expressive brush strokes",
+        },
+        answer: "human",
+      },
+      {
+        question: "Is the following content generated by AI or a Human?",
+        contentType: "text",
+        content: `Whispers of the wind through trees so tall,
+A dance of shadows where the nightbirds call.
+Stars ignite the velvet sky's embrace,
+Dreams unfold in this quiet place.`,
+        answer: "human",
+      },
+      {
+        question: "Is the following content generated by AI or a Human?",
+        contentType: "text",
+        content: `The gentle hum of the city at night was punctuated by distant sirens and the occasional bark of a dog. It was a symphony of urban life, both chaotic and comforting.`,
+        answer: "human",
+      },
+      {
+        question: "Is the following content generated by AI or a Human?",
+        contentType: "image",
+        content: {
+          src: "https://images.stockcake.com/public/4/8/f/48f0d4f4-b494-4ce8-bb4a-59a1a4009651_large/underwater-diving-adventure-stockcake.jpg",
+          alt: "AI generated scuba diving image under water showing a diver surrounded by colorful coral reefs and tropical fish",
+        },
+        answer: "ai",
+      },
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    const frontPage = document.getElementById("front-page");
+    const gameSection = document.getElementById("game");
+    const questionTextEl = document.getElementById("question-text");
+    const contentBoxEl = document.getElementById("content-box");
+    const btnAI = document.getElementById("btn-ai");
+    const btnHuman = document.getElementById("btn-human");
+    const feedbackContainer = document.getElementById("feedback-container");
+    const feedbackText = document.getElementById("feedback-text");
+    const nextBtn = document.getElementById("next-btn");
+    const prevBtn = document.getElementById("prev-btn");
+    const quitBtn = document.getElementById("quit-btn");
+    const feedbackNextBtn = document.getElementById("feedback-next-btn");
+    const questionContainer = document.getElementById("question-container");
+    const resultContainer = document.getElementById("result-container");
+    const finalMessageEl = document.getElementById("final-message");
+    const restartBtn = document.getElementById("restart-btn");
+    const startBtn = document.getElementById("start-btn");
+    const endBtn = document.getElementById("end-btn");
+    const endContainer = document.getElementById("end-container");
+    const endRestartBtn = document.getElementById("end-restart-btn");
+    const endHomeBtn = document.getElementById("end-home-btn");
+
+    function clearContentBox() {
+      contentBoxEl.innerHTML = "";
+    }
+
+    function loadQuestion() {
+      const current = questions[currentQuestionIndex];
+      questionTextEl.textContent = `Question ${
+        currentQuestionIndex + 1
+      } of ${questions.length}: ${current.question}`;
+      clearContentBox();
+
+      if (current.contentType === "text") {
+        const p = document.createElement("p");
+        p.textContent = current.content;
+        p.className =
+          "whitespace-pre-wrap text-gray-800 text-base md:text-lg max-w-3xl";
+        contentBoxEl.appendChild(p);
+      } else if (current.contentType === "image") {
+        const img = document.createElement("img");
+        img.src = current.content.src;
+        img.alt = current.content.alt;
+        img.className = "rounded-xl shadow-lg";
+        img.style.width = "100%";
+        img.style.height = "auto";
+        img.style.maxHeight = "400px";
+        contentBoxEl.appendChild(img);
+      } else if (current.contentType === "video") {
+        const video = document.createElement("video");
+        video.src = current.content.src;
+        video.controls = true;
+        video.setAttribute("aria-label", current.content.alt);
+        video.className = "max-w-full rounded-xl shadow-lg";
+        video.setAttribute("playsinline", "");
+        video.setAttribute("preload", "metadata");
+        contentBoxEl.appendChild(video);
+      }
+
+      feedbackContainer.classList.add("hidden");
+      questionContainer.classList.remove("hidden");
+      btnAI.disabled = false;
+      btnHuman.disabled = false;
+      btnAI.classList.remove("opacity-50", "cursor-not-allowed");
+      btnHuman.classList.remove("opacity-50", "cursor-not-allowed");
+      btnAI.classList.remove("bg-red-400");
+      btnHuman.classList.remove("bg-green-400");
+      btnAI.classList.add("bg-red-600");
+      btnHuman.classList.add("bg-green-600");
+
+      // Enable/disable prev button
+      prevBtn.disabled = currentQuestionIndex === 0;
+
+      // Enable/disable next button
+      nextBtn.disabled = currentQuestionIndex === questions.length - 1;
+    }
+
+    function handleAnswer(selected) {
+      btnAI.disabled = true;
+      btnHuman.disabled = true;
+      btnAI.classList.add("opacity-50", "cursor-not-allowed");
+      btnHuman.classList.add("opacity-50", "cursor-not-allowed");
+
+      const current = questions[currentQuestionIndex];
+      const correct = current.answer;
+
+      if (selected === correct) {
+        score++;
+        feedbackText.innerHTML = `<i class="fas fa-check-circle text-green-500 mr-2"></i>Correct! This content was created by <span class="font-semibold">${correct.toUpperCase()}</span>.`;
+      } else {
+        feedbackText.innerHTML = `<i class="fas fa-times-circle text-red-500 mr-2"></i>Wrong! This content was created by <span class="font-semibold">${correct.toUpperCase()}</span>.`;
+      }
+
+      feedbackContainer.classList.remove("hidden");
+      questionContainer.classList.add("hidden");
+    }
+
+    btnAI.addEventListener("click", () => handleAnswer("ai"));
+    btnHuman.addEventListener("click", () => handleAnswer("human"));
+
+    nextBtn.addEventListener("click", () => {
+      if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        loadQuestion();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+
+    prevBtn.addEventListener("click", () => {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        loadQuestion();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+
+    quitBtn.addEventListener("click", () => {
+      frontPage.classList.remove("hidden");
+      gameSection.classList.add("hidden");
+      resultContainer.classList.add("hidden");
+      feedbackContainer.classList.add("hidden");
+      questionContainer.classList.remove("hidden");
+      endContainer.classList.add("hidden");
+      currentQuestionIndex = 0;
+      score = 0;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    nextBtn.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        nextBtn.click();
+      }
+    });
+
+    feedbackNextBtn.addEventListener("click", () => {
+      if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        loadQuestion();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        showResult();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+
+    restartBtn.addEventListener("click", () => {
+      currentQuestionIndex = 0;
+      score = 0;
+      resultContainer.classList.add("hidden");
+      frontPage.classList.add("hidden");
+      gameSection.classList.remove("hidden");
+      feedbackContainer.classList.add("hidden");
+      questionContainer.classList.remove("hidden");
+      endContainer.classList.add("hidden");
+      loadQuestion();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    startBtn.addEventListener("click", () => {
+      frontPage.classList.add("hidden");
+      gameSection.classList.remove("hidden");
+      resultContainer.classList.add("hidden");
+      feedbackContainer.classList.add("hidden");
+      questionContainer.classList.remove("hidden");
+      endContainer.classList.add("hidden");
+      currentQuestionIndex = 0;
+      score = 0;
+      loadQuestion();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    endBtn.addEventListener("click", () => {
+      resultContainer.classList.add("hidden");
+      endContainer.classList.remove("hidden");
+      frontPage.classList.add("hidden");
+      gameSection.classList.add("hidden");
+      feedbackContainer.classList.add("hidden");
+      questionContainer.classList.add("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    endRestartBtn.addEventListener("click", () => {
+      endContainer.classList.add("hidden");
+      currentQuestionIndex = 0;
+      score = 0;
+      frontPage.classList.add("hidden");
+      gameSection.classList.remove("hidden");
+      resultContainer.classList.add("hidden");
+      feedbackContainer.classList.add("hidden");
+      questionContainer.classList.remove("hidden");
+      loadQuestion();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    endHomeBtn.addEventListener("click", () => {
+      endContainer.classList.add("hidden");
+      frontPage.classList.remove("hidden");
+      gameSection.classList.add("hidden");
+      resultContainer.classList.add("hidden");
+      feedbackContainer.classList.add("hidden");
+      questionContainer.classList.remove("hidden");
+      currentQuestionIndex = 0;
+      score = 0;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    function showResult() {
+      questionContainer.classList.add("hidden");
+      feedbackContainer.classList.add("hidden");
+      resultContainer.classList.remove("hidden");
+      endContainer.classList.add("hidden");
+
+      let message = "";
+      const percentage = (score / questions.length) * 100;
+
+      if (percentage === 100) {
+        message = `Outstanding! You aced the challenge and proved you're a true connoisseur of AI and human content. Your perception is razor-sharp! 🎉`;
+      } else if (percentage >= 80) {
+        message = `Great job! You have a keen eye for spotting AI and human creations. Keep honing your skills for even sharper insights. 👍`;
+      } else if (percentage >= 50) {
+        message = `Not bad! You can tell AI from human content fairly well. With a bit more practice, you'll be a master at this game. 🤓`;
+      } else {
+        message = `This was a tough challenge! Don't be discouraged — the line between AI and human content is blurrier than ever. Keep playing and learning! 💡`;
+      }
+
+      finalMessageEl.textContent = message;
+    }
+
+    // Initialize game on page load with front page visible
+    frontPage.classList.remove("hidden");
+    gameSection.classList.add("hidden");
+    resultContainer.classList.add("hidden");
+    feedbackContainer.classList.add("hidden");
+    endContainer.classList.add("hidden");
+  </script>
+ </body>
+</html>
