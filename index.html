@@ -1,28 +1,19 @@
+<!DOCTYPE html>
 <html class="scroll-smooth" lang="en">
- <head>
+<head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   TCS LTC IP&I and CR Away day 2025
-  </title>
+  <title>TCS LTC IP&I and CR Away day 2025</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     body {
       font-family: "Inter", sans-serif;
-      background-color: #0A0A0A; /* Very dark base color */
-      /* Robotic theme background with electric blue detailing (SVG pattern) - no animation */
-      background-image:
-        radial-gradient(circle at center, rgba(0, 255, 255, 0.05) 0%, transparent 70%), /* Subtle electric blue glow */
-        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2300FFFF' stroke-width='0.5' stroke-opacity='0.1'%3E%3Cpath d='M0 0h80v80H0z'/%3E%3Cpath d='M0 0L80 80M80 0L0 80' stroke-opacity='0.05'/%3E%3Cpath d='M40 0v80M0 40h80'/%3E%3Ccircle cx='20' cy='20' r='2' fill='%2300FFFF' fill-opacity='0.1'/%3E%3Ccircle cx='60' cy='20' r='2' fill='%2300FFFF' fill-opacity='0.1'/%3E%3Ccircle cx='20' cy='60' r='2' fill='%2300FFFF' fill-opacity='0.1'/%3E%3Ccircle cx='60' cy='60' r='2' fill='%2300FFFF' fill-opacity='0.1'/%3E%3C/g%3E%3C/svg%3E"); /* More intricate circuit pattern */
-      background-size: 100% 100%, 80px 80px; /* Size for glow and pattern */
-      background-position: 0 0;
-      background-blend-mode: screen; /* Blends the layers nicely */
+      background: linear-gradient(135deg, #C084FC 0%, #7C3AED 50%, #4C1D95 100%);
+      background-attachment: fixed;
       min-height: 100vh;
     }
-
-    /* Removed @keyframes backgroundPan as it's no longer needed */
 
     video {
       max-width: 100%;
@@ -45,7 +36,7 @@
       letter-spacing: -0.02em;
     }
     .black-grey-gradient-text {
-      background: linear-gradient(90deg, #333333, #888888); /* Dark grey to light grey */
+      background: linear-gradient(90deg, #FFFFFF, #E0E0E0);
       background-size: 200% 200%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -76,10 +67,10 @@
     .sparkle {
       position: relative;
       display: inline-block;
-      color: #a78bfa;
+      color: #C084FC;
       font-weight: 700;
       font-size: 1.4em;
-      filter: drop-shadow(0 0 6px #a78bfa);
+      filter: drop-shadow(0 0 6px #C084FC);
     }
     .sparkle::before, .sparkle::after {
       content: "✨";
@@ -87,7 +78,7 @@
       font-size: 1.8rem;
       animation: sparkleAnim 2.5s infinite ease-in-out;
       opacity: 0.9;
-      filter: drop-shadow(0 0 6px #a78bfa);
+      filter: drop-shadow(0 0 6px #C084FC);
     }
     .sparkle::before {
       top: -1.6rem;
@@ -103,157 +94,222 @@
       0%, 100% { opacity: 0.9; transform: scale(1) rotate(0deg); }
       50% { opacity: 0; transform: scale(0.5) rotate(45deg); }
     }
-    /* Styles for the main content area */
+    
     main {
-        background: rgba(17, 24, 39, 0.8); /* Darker, semi-transparent background */
-        backdrop-filter: blur(5px); /* Optional: Adds a subtle blur effect */
-        border: 1px solid rgba(0, 255, 255, 0.3); /* Electric blue border */
-        color: #E5E7EB; /* Light grey text for contrast */
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(20px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        color: #FFFFFF;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
-    /* Adjust text colors within main to be visible on dark background */
+    
     main h1, main h2, main p, main span {
-        color: inherit; /* Inherit color from main */
+        color: inherit;
     }
-    /* Specific adjustments for elements within #front-page and #game */
+    
     #front-page p {
-        color: #D1D5DB; /* Lighter grey for better readability */
+        color: #FFFFFF;
     }
+    
     #question-text {
-        color: #E5E7EB; /* Light grey for question text */
+        color: #FFFFFF;
+        text-shadow: 0 2px 10px rgba(192, 132, 252, 0.5);
+        font-family: 'Orbitron', sans-serif;
     }
+    
+    #question-container {
+        background: linear-gradient(135deg, rgba(192, 132, 252, 0.3) 0%, rgba(124, 58, 237, 0.3) 100%);
+        backdrop-filter: blur(10px);
+        position: relative;
+        z-index: 1;
+        padding: 2.5rem; 
+        border-radius: 1rem;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 8px 32px rgba(124, 58, 237, 0.4);
+        overflow: hidden;
+    }
+    
+    #question-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(76, 29, 149, 0.2);
+        border-radius: 1rem;
+        z-index: -1;
+    }
+    
+    #question-container p, #question-container span, #question-container h2 {
+        color: #FFFFFF;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
     #content-box {
-        background: rgba(31, 41, 55, 0.9); /* Darker background for content box */
-        border-color: rgba(0, 255, 255, 0.2); /* Subtle electric blue border */
-        color: #E5E7EB; /* Light grey text */
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-color: rgba(255, 255, 255, 0.4);
+        box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+        color: #FFFFFF;
     }
     #content-box p {
-        color: #E5E7EB; /* Ensure text in content box is light */
+        color: #FFFFFF;
     }
+
+    #btn-ai {
+        box-shadow: 0 4px 15px rgba(239, 68, 68, 0.5);
+    }
+    #btn-ai:hover {
+        box-shadow: 0 4px 20px rgba(239, 68, 68, 0.7);
+    }
+    
+    #btn-human {
+        box-shadow: 0 4px 15px rgba(34, 197, 94, 0.5);
+    }
+    #btn-human:hover {
+        box-shadow: 0 4px 20px rgba(34, 197, 94, 0.7);
+    }
+
     #feedback-text {
-        color: #E5E7EB; /* Light grey for feedback text */
+        color: #FFFFFF;
     }
+    
+    #game button:not(#btn-ai):not(#btn-human) {
+        box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3);
+    }
+    #game button:not(#btn-ai):not(#btn-human):hover {
+        box-shadow: 0 6px 15px rgba(124, 58, 237, 0.5);
+    }
+    
     #result-container {
-        background: rgba(17, 24, 39, 0.9); /* Darker background for result container */
-        box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2); /* Electric blue shadow */
-        border: 1px solid rgba(0, 255, 255, 0.3); /* Electric blue border */
-        color: #E5E7EB; /* Light grey text */
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 8px 32px rgba(124, 58, 237, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        color: #FFFFFF;
     }
     #result-container button {
-        box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3); /* Electric blue shadow for buttons */
+        box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
     }
     #result-container button:hover {
-        box-shadow: 0 12px 30px rgba(0, 255, 255, 0.6); /* Enhanced hover shadow */
+        box-shadow: 0 6px 20px rgba(124, 58, 237, 0.6);
     }
     #final-message {
-        color: #E5E7EB; /* Light grey for final message */
+        color: #FFFFFF;
     }
     #end-container {
-        background: rgba(17, 24, 39, 0.9); /* Darker background for end container */
-        box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2); /* Electric blue shadow */
-        border: 1px solid rgba(0, 255, 255, 0.3); /* Electric blue border */
-        color: #E5E7EB; /* Light grey text */
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 8px 32px rgba(124, 58, 237, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        color: #FFFFFF;
     }
     #end-container h2 {
-        color: #00AACC; /* Electric blue for end container title */
+        color: #C084FC;
+        text-shadow: 0 2px 10px rgba(192, 132, 252, 0.6);
     }
     #end-container p {
-        color: #D1D5DB; /* Lighter grey for end container text */
+        color: #FFFFFF;
     }
   </style>
- </head>
- <body class="flex flex-col items-center justify-center p-4 min-h-screen">
+</head>
+<body class="flex flex-col items-center justify-center p-4 min-h-screen">
   <main class="w-full max-w-4xl rounded-3xl shadow-2xl p-8 md:p-12 mt-12 mb-12 flex flex-col items-center">
-   <section class="flex flex-col items-center space-y-8 w-full" id="front-page">
-    <h1 class="text-3xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-600 to-purple-700 tracking-wide select-none">
-      TCS LTC IP&I and CR Away day 2025
-      <br/>
-      <span class="text-3xl font-semibold black-grey-gradient-text">
-        AI vs Human?
-      </span>
-    </h1>
-    <img alt="High quality image showing a split screen with human creativity on one side featuring a person writing and painting, and AI creativity on the other side with digital neural network and code symbols, visually explaining the game concept of distinguishing AI and human content" class="rounded-3xl shadow-lg max-w-full" height="200" src="https://motionarray.imgix.net/motion-array-2056463-kg8z0CL8Ch-high_0006.jpg?w=660&amp;q=60&amp;fit=max&amp;auto=format" width="400"/>
-    <p class="text-center text-lg max-w-3xl">
-      Challenge your insight. Distinguish the subtle line where human creativity
-      meets artificial intelligence. Are you ready to see beyond the obvious?
-    </p>
-    <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-12 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-indigo-400" id="start-btn" type="button">
-      Start Game
-    </button>
-   </section>
-   <section class="hidden w-full space-y-10" id="game">
-    <div class="space-y-8" id="question-container">
-      <p class="text-xl md:text-2xl font-semibold leading-relaxed text-center" id="question-text">
-      Loading question...
+    <section class="flex flex-col items-center space-y-8 w-full" id="front-page">
+      <h1 class="text-3xl font-extrabold text-center text-white tracking-wide select-none">
+        TCS LTC IP&I and CR Away day 2025
+        <br/>
+        <span class="text-3xl font-semibold black-grey-gradient-text">
+          AI vs Human?
+        </span>
+      </h1>
+      <img alt="High quality image showing a split screen with human creativity on one side featuring a person writing and painting, and AI creativity on the other side with digital neural network and code symbols" class="rounded-3xl shadow-lg max-w-full" height="200" src="https://motionarray.imgix.net/motion-array-2056463-kg8z0CL8Ch-high_0006.jpg?w=660&q=60&fit=max&auto=format" width="400"/>
+      <p class="text-center text-lg max-w-3xl">
+        Challenge your insight. Distinguish the subtle line where human creativity meets artificial intelligence. Are you ready to see beyond the obvious?
       </p>
-      <div class="border rounded-xl p-6 text-base md:text-lg min-h-[180px] flex flex-col items-center justify-center space-y-6" id="content-box">
-      Loading content...
+      <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-12 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-indigo-400" id="start-btn" type="button">
+        Start Game
+      </button>
+    </section>
+    
+    <section class="hidden w-full space-y-10" id="game">
+      <div class="space-y-8 p-6" id="question-container">
+        <p class="text-xl md:text-2xl font-semibold leading-relaxed text-center" id="question-text">
+          Loading question...
+        </p>
+        <div class="border rounded-xl p-6 text-base md:text-lg min-h-[180px] flex flex-col items-center justify-center space-y-6" id="content-box">
+          Loading content...
+        </div>
+        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+          <button aria-label="Select AI as answer" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-red-400 flex items-center justify-center text-lg" id="btn-ai" type="button">
+            <i aria-hidden="true" class="fas fa-robot mr-3 text-2xl"></i>
+            AI
+          </button>
+          <button aria-label="Select Human as answer" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-green-400 flex items-center justify-center text-lg" id="btn-human" type="button">
+            <i aria-hidden="true" class="fas fa-user mr-3 text-2xl"></i>
+            Human
+          </button>
+        </div>
       </div>
-      <div class="flex flex-col sm:flex-row gap-6 justify-center">
-      <button aria-label="Select AI as answer" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-red-400 flex items-center justify-center text-lg" id="btn-ai" type="button">
-        <i aria-hidden="true" class="fas fa-robot mr-3 text-2xl"></i>
-        AI
-      </button>
-      <button aria-label="Select Human as answer" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-green-400 flex items-center justify-center text-lg" id="btn-human" type="button">
-        <i aria-hidden="true" class="fas fa-user mr-3 text-2xl"></i>
-        Human
-      </button>
+      <div class="flex justify-between mt-6">
+        <button aria-label="Previous question" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-gray-300 disabled:opacity-50 disabled:cursor-not-allowed" disabled id="prev-btn" type="button">
+          <i aria-hidden="true" class="fas fa-arrow-left mr-2"></i>
+          Previous
+        </button>
+        <button aria-label="Quit game" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-yellow-400" id="quit-btn" type="button">
+          <i aria-hidden="true" class="fas fa-sign-out-alt mr-2"></i>
+          Quit
+        </button>
+        <button aria-label="Next question" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-blue-400" id="next-btn" type="button">
+          Next
+          <i aria-hidden="true" class="fas fa-arrow-right ml-2"></i>
+        </button>
       </div>
-    </div>
-    <div class="flex justify-between mt-6">
-      <button aria-label="Previous question" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-gray-300 disabled:opacity-50 disabled:cursor-not-allowed" disabled="" id="prev-btn" type="button">
-      <i aria-hidden="true" class="fas fa-arrow-left mr-2"></i>
-      Previous
-      </button>
-      <button aria-label="Quit game" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-yellow-400" id="quit-btn" type="button">
-      <i aria-hidden="true" class="fas fa-sign-out-alt mr-2"></i>
-      Quit
-      </button>
-      <button aria-label="Next question" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-blue-400" id="next-btn" type="button">
-      Next
-      <i aria-hidden="true" class="fas fa-arrow-right ml-2"></i>
-      </button>
-    </div>
-    <div aria-atomic="true" aria-live="polite" class="hidden flex-col items-center space-y-5 text-center" id="feedback-container" role="region">
-      <p class="text-xl font-semibold" id="feedback-text"></p>
-      <button aria-label="Continue to next question or results" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-blue-400" id="feedback-next-btn" type="button">
-      Continue
-      </button>
-    </div>
-   </section>
-   <section aria-atomic="true" aria-live="polite" class="hidden flex flex-col items-center space-y-8 text-center mt-12 px-4" id="result-container" role="region">
-    <h2 class="text-6xl font-extrabold gradient-text select-none tracking-tight" style="">
-      Challenge Complete!
-    </h2>
-    <p class="text-2xl max-w-3xl leading-relaxed" id="final-message" style="">
-      <span class="sparkle">Congratulations!</span> Your insight is remarkable. Keep exploring, innovating, and leading with confidence.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-6 mt-6 w-full max-w-md justify-center">
-      <button aria-label="Play again" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-12 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-indigo-400" id="restart-btn" type="button">
-      Play Again
-      </button>
-      <button aria-label="End challenge" class="flex-1 bg-gray-700 hover:bg-gray-800 text-white font-bold py-4 px-12 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-gray-600" id="end-btn" type="button">
-      End Challenge
-      </button>
-    </div>
-   </section>
-   <section aria-atomic="true" aria-live="polite" class="hidden flex flex-col items-center space-y-8 text-center mt-12 px-6 max-w-3xl" id="end-container" role="region">
-    <h2 class="text-4xl font-extrabold text-indigo-700">
-      You've Reached the Finish Line!
-    </h2>
-    <img alt="Illustration of a person joyfully celebrating success with confetti and a shining trophy, symbolizing achievement and accomplishment" class="rounded-3xl shadow-lg w-full max-w-full h-auto" height="300" src="https://storage.googleapis.com/a1aa/image/7d16fda6-889a-426c-b53f-2d794990691c.jpg" width="600"/>
-    <p class="text-lg">
-      Congratulations on completing the AI or Human content challenge! Your curiosity and insight have brought you to the forefront of understanding the fascinating blend of human creativity and artificial intelligence.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-6 justify-center mt-6 w-full max-w-md">
-      <button aria-label="Play again from end page" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-indigo-400" id="end-restart-btn" type="button">
-      Play Again
-      </button>
-      <button aria-label="Return to home page" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-gray-500" id="end-home-btn" type="button">
-      Return to Home
-      </button>
-    </div>
-   </section>
+      <div aria-atomic="true" aria-live="polite" class="hidden flex-col items-center space-y-5 text-center" id="feedback-container" role="region">
+        <p class="text-xl font-semibold" id="feedback-text"></p>
+        <button aria-label="Continue to next question or results" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-blue-400" id="feedback-next-btn" type="button">
+          Continue
+        </button>
+      </div>
+    </section>
+    
+    <section aria-atomic="true" aria-live="polite" class="hidden flex flex-col items-center space-y-8 text-center mt-12 px-4" id="result-container" role="region">
+      <h2 class="text-6xl font-extrabold text-white select-none tracking-tight">
+        Challenge Complete!
+      </h2>
+      <p class="text-2xl max-w-3xl leading-relaxed" id="final-message">
+        <span class="sparkle">Congratulations!</span> Your insight is remarkable. Keep exploring AI and innovating!
+      </p>
+      <div class="flex flex-col sm:flex-row gap-6 mt-6 w-full max-w-md justify-center">
+        <button aria-label="Play again" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-12 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-indigo-400" id="restart-btn" type="button">
+          Play Again
+        </button>
+        <button aria-label="End challenge" class="flex-1 bg-gray-700 hover:bg-gray-800 text-white font-bold py-4 px-12 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-gray-600" id="end-btn" type="button">
+          End Challenge
+        </button>
+      </div>
+    </section>
+    
+    <section aria-atomic="true" aria-live="polite" class="hidden flex flex-col items-center space-y-8 text-center mt-12 px-6 max-w-3xl" id="end-container" role="region">
+      <h2 class="text-4xl font-extrabold">
+        You've Reached the Finish Line!
+      </h2>
+      <img alt="Illustration of a person joyfully celebrating success with confetti and a shining trophy" class="rounded-3xl shadow-lg w-full max-w-full h-auto" height="300" src="https://storage.googleapis.com/a1aa/image/7d16fda6-889a-426c-b53f-2d794990691c.jpg" width="600"/>
+      <p class="text-lg">
+        Congratulations on completing the AI or Human content challenge! Your curiosity and insight have brought you to the forefront of understanding the fascinating blend of human creativity and artificial intelligence.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center mt-6 w-full max-w-md">
+        <button aria-label="Play again from end page" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-indigo-400" id="end-restart-btn" type="button">
+          Play Again
+        </button>
+        <button aria-label="Return to home page" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-gray-500" id="end-home-btn" type="button">
+          Return to Home
+        </button>
+      </div>
+    </section>
   </main>
+  
   <script>
     const questions = [
       {
@@ -267,7 +323,7 @@
         contentType: "image",
         content: {
           src: "https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2018/03/how-to-live-1.jpg?w=750",
-          alt: "AI generated abstract art with vibrant colors and geometric shapes, digital painting style",
+          alt: "Photography of person in nature",
         },
         answer: "human",
       },
@@ -276,15 +332,15 @@
         contentType: "video",
         content: {
           src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
-          alt: "Short video clip showing a close-up of a blooming flower with gentle sunlight",
+          alt: "Short video clip showing a close-up of a blooming flower",
         },
         answer: "human",
       },
       {
         question: "AI or Human?",
         contentType: "text",
-        content: `Joke  😅
-        I tried to be more productive this year, so I made a to-do list.Now I just feel accomplished for having the list, which feels like cheating, but I’m choosing peace.`,
+        content: `Joke 😅
+I tried to be more productive this year, so I made a to-do list. Now I just feel accomplished for having the list, which feels like cheating, but I'm choosing peace.`,
         answer: "ai",
       },
       {
@@ -292,7 +348,7 @@
         contentType: "image",
         content: {
           src: "./aiimage.jpeg",
-          alt: "Photograph of a bustling market with fresh fruits and handmade crafts, vibrant colors, natural lighting",
+          alt: "AI generated image with digital characteristics",
         },
         answer: "ai",
       },
@@ -300,19 +356,19 @@
         question: "AI or Human?",
         contentType: "text",
         content: `Casual conversation   
-                  Alex: hey, are you free for a quick call?
-                  
-                  Sam: uh… depends how “quick” is defined today 😅
-                  
-                  Alex: fair. 10 mins. promise.
+Alex: hey, are you free for a quick call?
 
-                  Sam: you said that last time
+Sam: uh… depends how "quick" is defined today 😅
 
-                  Alex: okay wow, noted. 8 mins.
+Alex: fair. 10 mins. promise.
 
-                  Sam: …fine. if this turns into a meeting, I’m blaming you publicly.
+Sam: you said that last time
 
-                  Alex: reasonable. sending the link.`,
+Alex: okay wow, noted. 8 mins.
+
+Sam: …fine. if this turns into a meeting, I'm blaming you publicly.
+
+Alex: reasonable. sending the link.`,
         answer: "ai",
       },
       {
@@ -320,7 +376,7 @@
         contentType: "image",
         content: {
           src: "https://artstreet.in/cdn/shop/products/911udDTYPcL._SL1500_1500x1229.jpg?v=1587561973",
-          alt: "A vibrant oil painting of a countryside landscape with rolling hills, bright flowers, and a clear blue sky, painted with expressive brush strokes",
+          alt: "A vibrant oil painting of a countryside landscape",
         },
         answer: "human",
       },
@@ -333,12 +389,12 @@ Stars ignite the velvet sky's embrace,
 Dreams unfold in this quiet place.`,
         answer: "human",
       },
-       {
+      {
         question: "AI or Human?",
         contentType: "video",
         content: {
           src: "./aivideo.mp4",
-          alt: "Short video clip showing a close-up of a blooming flower with gentle sunlight",
+          alt: "AI generated video content",
         },
         answer: "ai",
       },
@@ -347,7 +403,7 @@ Dreams unfold in this quiet place.`,
         contentType: "image",
         content: {
           src: "https://images.stockcake.com/public/a/4/b/a4be5c93-268e-426f-8245-1006e8bf42d2_large/diving-in-coral-stockcake.jpg",
-          alt: "AI generated scuba diving image under water showing a diver surrounded by colorful coral reefs and tropical fish",
+          alt: "Underwater scuba diving scene with coral reefs",
         },
         answer: "ai",
       },
@@ -383,16 +439,13 @@ Dreams unfold in this quiet place.`,
 
     function loadQuestion() {
       const current = questions[currentQuestionIndex];
-      questionTextEl.textContent = `Question ${
-        currentQuestionIndex + 1
-      } of ${questions.length}: ${current.question}`;
+      questionTextEl.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}: ${current.question}`;
       clearContentBox();
 
       if (current.contentType === "text") {
         const p = document.createElement("p");
         p.textContent = current.content;
-        p.className =
-          "whitespace-pre-wrap text-base md:text-lg"; /* Removed text-gray-800 here */
+        p.className = "whitespace-pre-wrap text-base md:text-lg";
         contentBoxEl.appendChild(p);
       } else if (current.contentType === "image") {
         const img = document.createElement("img");
@@ -427,16 +480,20 @@ Dreams unfold in this quiet place.`,
     function handleAnswer(selected) {
       btnAI.disabled = true;
       btnHuman.disabled = true;
-      btnAI.classList.add("opacity-50", "cursor-not-allowed");
-      btnHuman.classList.add("opacity-50", "cursor-not-allowed");
+      
+      if (selected === 'ai') {
+        btnHuman.classList.add("opacity-50", "cursor-not-allowed");
+      } else {
+        btnAI.classList.add("opacity-50", "cursor-not-allowed");
+      }
 
       const current = questions[currentQuestionIndex];
       const correct = current.answer;
 
       if (selected === correct) {
-        feedbackText.innerHTML = `<i class="fas fa-check-circle text-green-400 mr-2"></i>Correct! This content was created by <span class="font-semibold">${correct.toUpperCase()}</span>.`; /* Adjusted green shade */
+        feedbackText.innerHTML = `<i class="fas fa-check-circle text-green-400 mr-2"></i>Correct! This content was created by <span class="font-semibold">${correct.toUpperCase()}</span>.`;
       } else {
-        feedbackText.innerHTML = `<i class="fas fa-times-circle text-red-400 mr-2"></i>Wrong! This content was created by <span class="font-semibold">${correct.toUpperCase()}</span>.`; /* Adjusted red shade */
+        feedbackText.innerHTML = `<i class="fas fa-times-circle text-red-400 mr-2"></i>Wrong! This content was created by <span class="font-semibold">${correct.toUpperCase()}</span>.`;
       }
 
       feedbackContainer.classList.remove("hidden");
@@ -471,13 +528,6 @@ Dreams unfold in this quiet place.`,
       endContainer.classList.remove("hidden");
       currentQuestionIndex = 0;
       window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    nextBtn.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        nextBtn.click();
-      }
     });
 
     feedbackNextBtn.addEventListener("click", () => {
@@ -553,8 +603,6 @@ Dreams unfold in this quiet place.`,
       feedbackContainer.classList.add("hidden");
       resultContainer.classList.remove("hidden");
       endContainer.classList.add("hidden");
-
-      finalMessageEl.textContent = "Congratulations! Your insight is remarkable. Keep exploring AI";
     }
 
     frontPage.classList.remove("hidden");
@@ -563,5 +611,5 @@ Dreams unfold in this quiet place.`,
     feedbackContainer.classList.add("hidden");
     endContainer.classList.add("hidden");
   </script>
- </body>
+</body>
 </html>
